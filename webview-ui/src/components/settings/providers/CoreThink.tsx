@@ -40,9 +40,6 @@ export const CoreThink = ({ apiConfiguration, setApiConfigurationField }: CoreTh
 					<VSCodeOption value="https://api.corethink.ai/v1/code" className="p-2">
 						api.corethink.ai
 					</VSCodeOption>
-					<VSCodeOption value="https://api.corethink.ai/v1/anthropic" className="p-2">
-						api.corethink.ai
-					</VSCodeOption>
 					{/* kilocode_change end */}
 				</VSCodeDropdown>
 			</div>
