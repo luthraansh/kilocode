@@ -258,6 +258,7 @@
 						"gemini-cli",
 						"zai",
 						"minimax",
+						"corethink",
 						"unbound",
 						"requesty",
 						"roo",
@@ -1414,6 +1415,24 @@
 				},
 				{
 					"if": {
+						"properties": { "provider": { "const": "corethink" } }
+					},
+					"then": {
+						"properties": {
+							"corethinkApiKey": {
+								"type": "string",
+								"description": "CoreThink API key"
+							},
+							"apiModelId": {
+								"type": "string",
+								"description": "CoreThink model ID"
+							},
+							"corethinkCodestralUrl": { "type": "string" }
+						}
+					}
+				},
+				{
+					"if": {
 						"properties": { "provider": { "const": "doubao" } }
 					},
 					"then": {
@@ -1531,6 +1550,51 @@
 					"if": {
 						"properties": {
 							"provider": { "const": "minimax" },
+							"apiModelId": { "type": "string", "minLength": 1 }
+						},
+						"required": ["apiModelId"]
+					},
+					"then": {
+						"properties": {
+							"apiModelId": { "minLength": 1 }
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": { "provider": { "const": "corethink" } }
+					},
+					"then": {
+						"properties": {
+							"corethinkApiKey": {
+								"type": "string",
+								"description": "CoreThink API key"
+							},
+							"apiModelId": {
+								"type": "string",
+								"description": "CoreThink model ID"
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"provider": { "const": "corethink" },
+							"corethinkApiKey": { "type": "string", "minLength": 1 }
+						},
+						"required": ["corethinkApiKey"]
+					},
+					"then": {
+						"properties": {
+							"corethinkApiKey": { "minLength": 10 }
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"provider": { "const": "corethink" },
 							"apiModelId": { "type": "string", "minLength": 1 }
 						},
 						"required": ["apiModelId"]

@@ -53,6 +53,8 @@ import {
 	ovhCloudAiEndpointsDefaultModelId,
 	inceptionDefaultModelId,
 	minimaxModels,
+	corethinkModels,
+	corethinkDefaultModelId,
 	minimaxDefaultModelId,
 	internationalZAiModels,
 	internationalZAiDefaultModelId,
@@ -308,6 +310,12 @@ export const getModelsByProvider = ({
 			return {
 				models: minimaxModels,
 				defaultModel: minimaxDefaultModelId,
+			}
+		}
+		case "corethink": {
+			return {
+				models: corethinkModels,
+				defaultModel: corethinkDefaultModelId,
 			}
 		}
 		case "baseten": {

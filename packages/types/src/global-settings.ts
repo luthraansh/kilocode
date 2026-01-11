@@ -279,6 +279,7 @@ export const SECRET_STATE_KEYS = [
 	"moonshotApiKey",
 	"mistralApiKey",
 	"minimaxApiKey",
+	"corethinkApiKey",
 	"unboundApiKey",
 	"requestyApiKey",
 	"xaiApiKey",

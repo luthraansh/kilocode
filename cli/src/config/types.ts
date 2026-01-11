@@ -310,6 +310,13 @@ type MinimaxProviderConfig = BaseProviderConfig & {
 	minimaxApiKey?: string
 }
 
+type CorethinkProviderConfig = BaseProviderConfig & {
+	provider: "corethink"
+	apiModelId?: string
+	corethinkBaseUrl?: string
+	corethinkApiKey?: string
+}
+
 type DeepSeekProviderConfig = BaseProviderConfig & {
 	provider: "deepseek"
 	apiModelId?: string
@@ -465,6 +472,7 @@ export type ProviderConfig =
 	| MistralProviderConfig
 	| MoonshotProviderConfig
 	| MinimaxProviderConfig
+	| CorethinkProviderConfig
 	| DeepSeekProviderConfig
 	| DoubaoProviderConfig
 	| QwenCodeProviderConfig

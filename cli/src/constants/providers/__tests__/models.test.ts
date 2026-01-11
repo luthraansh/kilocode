@@ -41,6 +41,7 @@ describe("Static Provider Models", () => {
 			"sambanova",
 			"zai",
 			"minimax",
+			"corethink",
 			"fireworks",
 			"featherless",
 			"claude-code",

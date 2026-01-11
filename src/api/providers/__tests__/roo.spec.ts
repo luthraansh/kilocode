@@ -113,6 +113,16 @@ vitest.mock("../../providers/fetchers/modelCache", () => ({
 					outputPrice: 0.6,
 					defaultToolProtocol: "native",
 				},
+				"corethink/corethink-1": {
+					maxTokens: 8192,
+					contextWindow: 79000,
+					supportsImages: true,
+					supportsPromptCache: false,
+					supportsNativeTools: true,
+					inputPrice: 1.0,
+					outputPrice: 1.0,
+					defaultToolProtocol: "native",
+				},
 				"anthropic/claude-haiku-4.5": {
 					maxTokens: 8_192,
 					contextWindow: 200_000,

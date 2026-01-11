@@ -59,6 +59,7 @@ describe("checkExistKey", () => {
 			requestyApiKey: undefined,
 			unboundApiKey: undefined,
 			minimaxApiKey: undefined, // kilocode_change
+			corethinkApiKey: undefined,
 		}
 		expect(checkExistKey(config)).toBe(false)
 	})

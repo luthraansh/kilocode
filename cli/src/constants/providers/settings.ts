@@ -549,6 +549,18 @@ export const FIELD_REGISTRY: Record<string, FieldMetadata> = {
 		placeholder: "Enter MiniMax API key...",
 	},
 
+	// CoreThink fields
+	corethinkBaseUrl: {
+		label: "Base URL",
+		type: "text",
+		placeholder: "Enter CoreThink base URL (or leave empty for default)...",
+	},
+	corethinkApiKey: {
+		label: "API Key",
+		type: "password",
+		placeholder: "Enter CoreThink API key...",
+	},
+
 	// Unbound fields
 	unboundApiKey: {
 		label: "API Key",
@@ -1003,6 +1015,11 @@ export const getProviderSettings = (provider: ProviderName, config: ProviderSett
 				createFieldConfig("minimaxBaseUrl", config, "https://api.minimax.io/anthropic"),
 				createFieldConfig("minimaxApiKey", config),
 			]
+		case "corethink":
+			return [
+				createFieldConfig("corethinkBaseUrl", config, "Default"),
+				createFieldConfig("corethinkApiKey", config),
+			]
 		case "fake-ai":
 			return [
 				{
@@ -1090,6 +1107,7 @@ export const PROVIDER_DEFAULT_MODELS: Record<ProviderName, string> = {
 	"virtual-quota-fallback": "gpt-4o",
 	"human-relay": "human",
 	minimax: "MiniMax-M2",
+	corethink: "gpt-4o",
 	"fake-ai": "fake-model",
 	ovhcloud: "gpt-oss-120b",
 	inception: "gpt-4o",

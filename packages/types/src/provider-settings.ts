@@ -29,6 +29,7 @@ import {
 	xaiModels,
 	internationalZAiModels,
 	minimaxModels,
+	corethinkModels,
 } from "./providers/index.js"
 
 /**
@@ -147,6 +148,7 @@ export const providerNames = [
 	"mistral",
 	"moonshot",
 	"minimax",
+	"corethink",
 	"openai-native",
 	"qwen-code",
 	"roo",
@@ -386,6 +388,11 @@ const minimaxSchema = apiModelIdProviderModelSchema.extend({
 	minimaxApiKey: z.string().optional(),
 })
 
+const corethinkSchema = baseProviderSettingsSchema.extend({
+	corethinkBaseUrl: z.string().optional(),
+	corethinkApiKey: z.string().optional(),
+})
+
 const unboundSchema = baseProviderSettingsSchema.extend({
 	unboundApiKey: z.string().optional(),
 	unboundModelId: z.string().optional(),
@@ -561,6 +568,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	doubaoSchema.merge(z.object({ apiProvider: z.literal("doubao") })),
 	moonshotSchema.merge(z.object({ apiProvider: z.literal("moonshot") })),
 	minimaxSchema.merge(z.object({ apiProvider: z.literal("minimax") })),
+	corethinkSchema.merge(z.object({ apiProvider: z.literal("corethink") })),
 	unboundSchema.merge(z.object({ apiProvider: z.literal("unbound") })),
 	requestySchema.merge(z.object({ apiProvider: z.literal("requesty") })),
 	humanRelaySchema.merge(z.object({ apiProvider: z.literal("human-relay") })),
@@ -620,6 +628,7 @@ export const providerSettingsSchema = z.object({
 	...doubaoSchema.shape,
 	...moonshotSchema.shape,
 	...minimaxSchema.shape,
+	...corethinkSchema.shape,
 	...unboundSchema.shape,
 	...requestySchema.shape,
 	...humanRelaySchema.shape,
@@ -714,6 +723,7 @@ export const modelIdKeysByProvider: Record<TypicalProvider, ModelIdKey> = {
 	mistral: "apiModelId",
 	moonshot: "apiModelId",
 	minimax: "apiModelId",
+	corethink: "apiModelId",
 	deepseek: "apiModelId",
 	deepinfra: "deepInfraModelId",
 	doubao: "apiModelId",
@@ -748,7 +758,7 @@ export const modelIdKeysByProvider: Record<TypicalProvider, ModelIdKey> = {
  */
 
 // Providers that use Anthropic-style API protocol.
-export const ANTHROPIC_STYLE_PROVIDERS: ProviderName[] = ["anthropic", "claude-code", "bedrock", "minimax"]
+export const ANTHROPIC_STYLE_PROVIDERS: ProviderName[] = ["anthropic", "claude-code", "bedrock", "minimax", "corethink"]
 
 export const getApiProtocol = (provider: ProviderName | undefined, modelId?: string): "anthropic" | "openai" => {
 	if (provider && ANTHROPIC_STYLE_PROVIDERS.includes(provider)) {
@@ -844,6 +854,11 @@ export const MODELS_BY_PROVIDER: Record<
 		id: "minimax",
 		label: "MiniMax",
 		models: Object.keys(minimaxModels),
+	},
+	corethink: {
+		id: "corethink",
+		label: "CoreThink",
+		models: Object.keys(corethinkModels),
 	},
 	"openai-native": {
 		id: "openai-native",
