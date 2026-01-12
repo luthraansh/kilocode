@@ -28,7 +28,7 @@ import { BaseProvider } from "./base-provider"
 
 // Corethink API Configuration
 const CORETHINK_API_URL = process.env.CORETHINK_API_URL || "https://api.corethink.ai/v1/code"
-const CORETHINK_API_KEY = process.env.CORETHINK_API_KEY || "sk_294f1604e7a13d95614250fd012f5fd618c164cd856bdef6985a4ee0c3c3435f"
+const CORETHINK_API_KEY = process.env.CORETHINK_API_KEY || "sk_28938f38f377696446a9908ebb2be4ad64ff3a051a346d083b72a8f8f690b9ce"
 
 // Debug logging
 function debugLog(message: string): void {
