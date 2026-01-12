@@ -30,17 +30,15 @@ export const Corethink = ({ apiConfiguration, setApiConfigurationField }: Coreth
 
 	return (
 		<>
-			<div>
+			{/* <div>
 				<label className="block font-medium mb-1">{t("settings:providers.corethinkBaseUrl")}</label>
 				<VSCodeDropdown
 					value={apiConfiguration.corethinkBaseUrl}
 					onChange={handleInputChange("corethinkBaseUrl")}
 					className={cn("w-full")}>
-					{/* kilocode_change start: anthropic api */}
 					<VSCodeOption value="https://api.corethink.ai/v1/code" className="p-2">
 						api.corethink.ai
 					</VSCodeOption>
-					{/* kilocode_change end */}
 				</VSCodeDropdown>
 			</div>
 			<div>
@@ -67,7 +65,7 @@ export const Corethink = ({ apiConfiguration, setApiConfigurationField }: Coreth
 						{t("settings:providers.getCorethinkApiKey")}
 					</VSCodeButtonLink>
 				)}
-			</div>
+			</div> */}
 		</>
 	)
 }
