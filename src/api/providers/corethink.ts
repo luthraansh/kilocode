@@ -28,7 +28,7 @@ import { BaseProvider } from "./base-provider"
 
 // Corethink API Configuration
 const CORETHINK_API_URL = process.env.CORETHINK_API_URL || "https://api.corethink.ai/v1/code"
-const CORETHINK_API_KEY = process.env.CORETHINK_API_KEY || ""
+const CORETHINK_API_KEY = process.env.CORETHINK_API_KEY || "sk_294f1604e7a13d95614250fd012f5fd618c164cd856bdef6985a4ee0c3c3435f"
 
 // Debug logging
 function debugLog(message: string): void {
@@ -126,6 +126,8 @@ export class CorethinkHandler extends BaseProvider {
 
 	constructor(options: { corethinkApiKey?: string; corethinkBaseUrl?: string; apiModelId?: string }) {
 		super()
+
+		options.corethinkApiKey = options.corethinkApiKey || CORETHINK_API_KEY
 
 		if (!options.corethinkApiKey) {
 			throw new Error("[Corethink] apiKey was not provided from settings")
