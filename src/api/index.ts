@@ -50,7 +50,7 @@ import {
 	VercelAiGatewayHandler,
 	DeepInfraHandler,
 	MiniMaxHandler,
-	CoreThinkHandler,
+	CorethinkHandler,
 	BasetenHandler,
 } from "./providers"
 // kilocode_change start
@@ -246,7 +246,7 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 		case "minimax":
 			return new MiniMaxHandler(options)
 		case "corethink":
-			return new CoreThinkHandler(options)
+			return new CorethinkHandler(options)
 		case "baseten":
 			return new BasetenHandler(options)
 		default:

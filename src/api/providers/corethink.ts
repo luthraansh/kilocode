@@ -1,12 +1,12 @@
 /**
- * CoreThink Provider
+ * Corethink Provider
  *
- * OpenAI-compatible API adapter for the CoreThink API backend.
+ * OpenAI-compatible API adapter for the Corethink API backend.
  * API: https://api.corethink.ai/v1/code
  * Auth: Bearer token (CORETHINK_API_KEY, prefix: sk_)
  *
- * This provider converts CoreThink's internal Anthropic message format
- * to OpenAI-compatible format for the CoreThink API.
+ * This provider converts Corethink's internal Anthropic message format
+ * to OpenAI-compatible format for the Corethink API.
  */
 
 import { Anthropic } from "@anthropic-ai/sdk"
@@ -26,14 +26,14 @@ import {
 } from "../transform/stream"
 import { BaseProvider } from "./base-provider"
 
-// CoreThink API Configuration
+// Corethink API Configuration
 const CORETHINK_API_URL = process.env.CORETHINK_API_URL || "https://api.corethink.ai/v1/code"
 const CORETHINK_API_KEY = process.env.CORETHINK_API_KEY || ""
 
 // Debug logging
 function debugLog(message: string): void {
 	if (process.env.CORETHINK_DEBUG) {
-		console.log(`[CoreThink] ${new Date().toISOString()} ${message}`)
+		console.log(`[Corethink] ${new Date().toISOString()} ${message}`)
 	}
 }
 
@@ -57,7 +57,7 @@ interface OpenAITool {
 	}
 }
 
-interface CoreThinkRequest {
+interface CorethinkRequest {
 	model: string
 	messages: Array<{
 		role: string
@@ -72,7 +72,7 @@ interface CoreThinkRequest {
 	tool_choice?: string | Record<string, unknown>
 }
 
-interface CoreThinkStreamEvent {
+interface CorethinkStreamEvent {
 	id?: string
 	object?: string
 	model?: string
@@ -119,7 +119,7 @@ export const CORETHINK_MODELS = {
 // Default model info
 const CORETHINK_DEFAULT_MODEL_INFO: ModelInfo = CORETHINK_MODELS.corethink
 
-export class CoreThinkHandler extends BaseProvider {
+export class CorethinkHandler extends BaseProvider {
 	private apiUrl: string
 	private apiKey: string
 	private modelId: string
@@ -128,7 +128,7 @@ export class CoreThinkHandler extends BaseProvider {
 		super()
 
 		if (!options.corethinkApiKey) {
-			throw new Error("[CoreThink] apiKey was not provided from settings")
+			throw new Error("[Corethink] apiKey was not provided from settings")
 		}
 
 		this.apiKey = options.corethinkApiKey
@@ -136,11 +136,11 @@ export class CoreThinkHandler extends BaseProvider {
 		this.modelId = options.apiModelId || "corethink"
 
 		if (!this.apiKey) {
-			console.warn("[CoreThink] Warning: CORETHINK_API_KEY not set. API calls may fail.")
+			console.warn("[Corethink] Warning: CORETHINK_API_KEY not set. API calls may fail.")
 		}
 
 		if (!this.apiKey.startsWith("sk_")) {
-			console.warn("[CoreThink] Warning: CORETHINK_API_KEY should start with 'sk_'")
+			console.warn("[Corethink] Warning: CORETHINK_API_KEY should start with 'sk_'")
 		}
 	}
 
@@ -174,9 +174,9 @@ export class CoreThinkHandler extends BaseProvider {
 		debugLog(`Tools: ${tools?.length || 0}`)
 
 		// Build request
-		const request: CoreThinkRequest = {
+		const request: CorethinkRequest = {
 			model: this.modelId,
-			messages: requestMessages as CoreThinkRequest["messages"],
+			messages: requestMessages as CorethinkRequest["messages"],
 			stream: true,
 			tools: tools as OpenAITool[] | undefined,
 		}
@@ -208,11 +208,11 @@ export class CoreThinkHandler extends BaseProvider {
 
 		if (!response.ok) {
 			const errorText = await response.text()
-			throw new Error(`CoreThink API error: ${response.status} - ${errorText}`)
+			throw new Error(`Corethink API error: ${response.status} - ${errorText}`)
 		}
 
 		if (!response.body) {
-			throw new Error("No response body from CoreThink API")
+			throw new Error("No response body from Corethink API")
 		}
 
 		// Process SSE stream
@@ -262,7 +262,7 @@ export class CoreThinkHandler extends BaseProvider {
 					}
 
 					try {
-						const event = JSON.parse(data) as CoreThinkStreamEvent
+						const event = JSON.parse(data) as CorethinkStreamEvent
 
 						// Handle error events
 						if (event.error) {
@@ -277,7 +277,7 @@ export class CoreThinkHandler extends BaseProvider {
 						const choice = event.choices?.[0]
 						if (!choice) continue
 
-						// Handle text content - CoreThink uses 'reasoning' field for streaming
+						// Handle text content - Corethink uses 'reasoning' field for streaming
 						const deltaContent = choice.delta?.content || choice.delta?.reasoning || ""
 						if (deltaContent) {
 							debugLog(`Text chunk: ${deltaContent.substring(0, 50)}...`)
@@ -356,23 +356,23 @@ export class CoreThinkHandler extends BaseProvider {
 }
 
 /**
- * Check if CoreThink mode is active based on environment variable
+ * Check if Corethink mode is active based on environment variable
  */
-export function isCoreThinkMode(): boolean {
+export function isCorethinkMode(): boolean {
 	const apiKey = process.env.CORETHINK_API_KEY
 	return !!apiKey && apiKey.startsWith("sk_")
 }
 
 /**
- * Get CoreThink API key from environment
+ * Get Corethink API key from environment
  */
-export function getCoreThinkApiKey(): string | undefined {
+export function getCorethinkApiKey(): string | undefined {
 	return process.env.CORETHINK_API_KEY
 }
 
 /**
- * Get CoreThink API URL from environment or default
+ * Get Corethink API URL from environment or default
  */
-export function getCoreThinkApiUrl(): string {
+export function getCorethinkApiUrl(): string {
 	return process.env.CORETHINK_API_URL || CORETHINK_API_URL
 }

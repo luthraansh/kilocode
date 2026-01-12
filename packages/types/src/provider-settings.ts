@@ -857,7 +857,7 @@ export const MODELS_BY_PROVIDER: Record<
 	},
 	corethink: {
 		id: "corethink",
-		label: "CoreThink",
+		label: "Corethink",
 		models: Object.keys(corethinkModels),
 	},
 	"openai-native": {

@@ -122,7 +122,7 @@ import {
 	VercelAiGateway,
 	DeepInfra,
 	MiniMax,
-	CoreThink,
+	Corethink,
 } from "./providers"
 
 import { MODELS_BY_PROVIDER, PROVIDERS } from "./constants"
@@ -793,7 +793,7 @@ const ApiOptions = ({
 			)}
 
 			{selectedProvider === "corethink" && (
-				<CoreThink apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
+				<Corethink apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
 			)}
 
 			{/* kilocode_change start */}

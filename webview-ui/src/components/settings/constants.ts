@@ -104,7 +104,7 @@ export const PROVIDERS = [
 	// kilocode_change end
 	{ value: "vercel-ai-gateway", label: "Vercel AI Gateway" },
 	{ value: "minimax", label: "MiniMax" },
-	{ value: "corethink", label: "CoreThink" },
+	{ value: "corethink", label: "Corethink" },
 	{ value: "baseten", label: "Baseten" },
 ].sort((a, b) => a.label.localeCompare(b.label))
 

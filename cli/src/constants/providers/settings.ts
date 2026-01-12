@@ -549,16 +549,16 @@ export const FIELD_REGISTRY: Record<string, FieldMetadata> = {
 		placeholder: "Enter MiniMax API key...",
 	},
 
-	// CoreThink fields
+	// Corethink fields
 	corethinkBaseUrl: {
 		label: "Base URL",
 		type: "text",
-		placeholder: "Enter CoreThink base URL (or leave empty for default)...",
+		placeholder: "Enter Corethink base URL (or leave empty for default)...",
 	},
 	corethinkApiKey: {
 		label: "API Key",
 		type: "password",
-		placeholder: "Enter CoreThink API key...",
+		placeholder: "Enter Corethink API key...",
 	},
 
 	// Unbound fields

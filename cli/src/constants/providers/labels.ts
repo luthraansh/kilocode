@@ -38,7 +38,7 @@ export const PROVIDER_LABELS: Record<ProviderName, string> = {
 	"gemini-cli": "Gemini CLI",
 	zai: "Zai",
 	minimax: "MiniMax",
-	corethink: "CoreThink",
+	corethink: "Corethink",
 	unbound: "Unbound",
 	requesty: "Requesty",
 	roo: "Roo",
