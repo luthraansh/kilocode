@@ -1421,11 +1421,11 @@
 						"properties": {
 							"corethinkApiKey": {
 								"type": "string",
-								"description": "CoreThink API key"
+								"description": "Corethink API key"
 							},
 							"apiModelId": {
 								"type": "string",
-								"description": "CoreThink model ID"
+								"description": "Corethink model ID"
 							},
 							"corethinkCodestralUrl": { "type": "string" }
 						}
@@ -1568,11 +1568,11 @@
 						"properties": {
 							"corethinkApiKey": {
 								"type": "string",
-								"description": "CoreThink API key"
+								"description": "Corethink API key"
 							},
 							"apiModelId": {
 								"type": "string",
-								"description": "CoreThink model ID"
+								"description": "Corethink model ID"
 							}
 						}
 					}
