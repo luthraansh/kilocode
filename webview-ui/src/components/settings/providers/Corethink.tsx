@@ -9,12 +9,12 @@ import { VSCodeButtonLink } from "@src/components/common/VSCodeButtonLink"
 import { inputEventTransform } from "../transforms"
 import { cn } from "@/lib/utils"
 
-type CoreThinkProps = {
+type CorethinkProps = {
 	apiConfiguration: ProviderSettings
 	setApiConfigurationField: (field: keyof ProviderSettings, value: ProviderSettings[keyof ProviderSettings]) => void
 }
 
-export const CoreThink = ({ apiConfiguration, setApiConfigurationField }: CoreThinkProps) => {
+export const Corethink = ({ apiConfiguration, setApiConfigurationField }: CorethinkProps) => {
 	const { t } = useAppTranslation()
 
 	const handleInputChange = useCallback(
@@ -64,7 +64,7 @@ export const CoreThink = ({ apiConfiguration, setApiConfigurationField }: CoreTh
 								: "https://api.corethink.ai/v1/code"
 						}
 						appearance="secondary">
-						{t("settings:providers.getCoreThinkApiKey")}
+						{t("settings:providers.getCorethinkApiKey")}
 					</VSCodeButtonLink>
 				)}
 			</div>
