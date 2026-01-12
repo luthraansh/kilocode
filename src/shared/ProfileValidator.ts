@@ -67,6 +67,7 @@ export class ProfileValidator {
 			case "xai":
 			case "zai":
 			case "minimax": // kilocode_change
+			case "corethink":
 			case "groq":
 			case "sambanova":
 			case "chutes":

@@ -133,6 +133,7 @@ export function getModelIdForProvider(provider: ProviderConfig): string {
 		case "mistral":
 		case "moonshot":
 		case "minimax":
+		case "corethink":
 		case "deepseek":
 		case "doubao":
 		case "qwen-code":

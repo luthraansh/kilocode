@@ -46,6 +46,7 @@ import {
 	vercelAiGatewayDefaultModelId,
 	deepInfraDefaultModelId,
 	minimaxDefaultModelId,
+	corethinkDefaultModelId,
 	nanoGptDefaultModelId, //kilocode_change
 	type ToolProtocol,
 	TOOL_PROTOCOL,
@@ -121,6 +122,7 @@ import {
 	VercelAiGateway,
 	DeepInfra,
 	MiniMax,
+	Corethink,
 } from "./providers"
 
 import { MODELS_BY_PROVIDER, PROVIDERS } from "./constants"
@@ -398,6 +400,7 @@ const ApiOptions = ({
 				doubao: { field: "apiModelId", default: doubaoDefaultModelId },
 				moonshot: { field: "apiModelId", default: moonshotDefaultModelId },
 				minimax: { field: "apiModelId", default: minimaxDefaultModelId },
+				corethink: { field: "apiModelId", default: corethinkDefaultModelId },
 				mistral: { field: "apiModelId", default: mistralDefaultModelId },
 				xai: { field: "apiModelId", default: xaiDefaultModelId },
 				groq: { field: "apiModelId", default: groqDefaultModelId },
@@ -465,6 +468,7 @@ const ApiOptions = ({
 			"zai",
 			"qwen-code",
 			"minimax",
+			"corethink",
 		]
 
 		// Skip documentation link when the provider is excluded because documentation is not available
@@ -786,6 +790,10 @@ const ApiOptions = ({
 
 			{selectedProvider === "minimax" && (
 				<MiniMax apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
+			)}
+
+			{selectedProvider === "corethink" && (
+				<Corethink apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
 			)}
 
 			{/* kilocode_change start */}

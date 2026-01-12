@@ -24,6 +24,7 @@ import {
 	rooModels,
 	featherlessModels,
 	minimaxModels,
+	corethinkModels,
 	basetenModels,
 } from "@roo-code/types"
 
@@ -52,6 +53,7 @@ export const MODELS_BY_PROVIDER: Partial<Record<ProviderName, Record<string, Mod
 	roo: rooModels,
 	featherless: featherlessModels,
 	minimax: minimaxModels,
+	corethink: corethinkModels,
 	baseten: basetenModels,
 }
 
@@ -102,6 +104,7 @@ export const PROVIDERS = [
 	// kilocode_change end
 	{ value: "vercel-ai-gateway", label: "Vercel AI Gateway" },
 	{ value: "minimax", label: "MiniMax" },
+	{ value: "corethink", label: "Corethink" },
 	{ value: "baseten", label: "Baseten" },
 ].sort((a, b) => a.label.localeCompare(b.label))
 

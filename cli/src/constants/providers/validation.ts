@@ -50,5 +50,6 @@ export const PROVIDER_REQUIRED_FIELDS: Record<ProviderName, string[]> = {
 	"vscode-lm": [], // Has nested object validation
 	"virtual-quota-fallback": [], // Has array validation
 	minimax: ["minimaxBaseUrl", "minimaxApiKey", "apiModelId"],
+	corethink: ["corethinkBaseUrl", "corethinkApiKey"],
 	baseten: ["basetenApiKey", "apiModelId"],
 }

@@ -47,6 +47,8 @@ import {
 	geminiCliDefaultModelId,
 	minimaxModels,
 	minimaxDefaultModelId,
+	corethinkModels,
+	corethinkDefaultModelId,
 	ovhCloudAiEndpointsDefaultModelId,
 } from "@roo-code/types"
 
@@ -145,6 +147,7 @@ export const PROVIDER_TO_ROUTER_NAME: Record<ProviderName, RouterName | null> = 
 	deepseek: null,
 	doubao: null,
 	minimax: null,
+	corethink: null,
 	"qwen-code": null,
 	"human-relay": null,
 	"fake-ai": null,
@@ -197,6 +200,7 @@ export const PROVIDER_MODEL_FIELD: Record<ProviderName, string | null> = {
 	deepseek: null,
 	doubao: null,
 	minimax: null,
+	corethink: null,
 	"qwen-code": null,
 	"human-relay": null,
 	"fake-ai": null,
@@ -279,6 +283,7 @@ export const DEFAULT_MODEL_IDS: Partial<Record<ProviderName, string>> = {
 	featherless: featherlessDefaultModelId,
 	deepinfra: "deepseek-ai/DeepSeek-R1-0528",
 	minimax: "MiniMax-M2",
+	corethink: corethinkDefaultModelId,
 	zai: internationalZAiDefaultModelId,
 	roo: rooDefaultModelId,
 	"gemini-cli": geminiCliDefaultModelId,
@@ -347,6 +352,11 @@ export function getModelsByProvider(params: {
 			return {
 				models: minimaxModels as ModelRecord,
 				defaultModel: minimaxDefaultModelId,
+			}
+		case "corethink":
+			return {
+				models: corethinkModels as ModelRecord,
+				defaultModel: corethinkDefaultModelId,
 			}
 		case "deepseek":
 			return {
