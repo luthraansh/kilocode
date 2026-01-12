@@ -112,7 +112,7 @@ export const CORETHINK_MODELS = {
 		supportsNativeTools: true,
 		inputPrice: 1.0,
 		outputPrice: 1.0,
-		description: "Corethink - AI coding assistant powered by Corethink",
+		description: "Corethink - AI that reasons through problems instead of guessing.",
 	},
 } as const
 
